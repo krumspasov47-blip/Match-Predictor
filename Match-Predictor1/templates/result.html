@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Results</title>
+    <link rel="stylesheet" type="text/css" href="static/style_result.css">
+</head>
+<body>
+    <h1>Match Stats: {{ stats.team1 }} vs {{ stats.team2 }}</h1>
+
+    <p>{{ stats.team1 }} Wins: {{ stats.team1_wins }}</p>
+    <p>{{ stats.team2 }} Wins: {{ stats.team2_wins }}</p>
+    <p>Draws: {{ stats.draws }}</p>
+
+    <h2>Predicted Probabilities:</h2>
+<ul>
+    <li>{{ stats.team1 }}: {{ stats.team1_prob }}%</li>
+    <li>{{ stats.team2 }}: {{ stats.team2_prob }}%</li>
+    <li>Draw: {{ stats.draw_prob }}%</li>
+</ul>
+
+    <img src="static/result.png" alt="Match Chart">
+
+    <br><br>
+    <a href="{{ url_for('index') }}">Try another match</a>
+</body>
+</html>

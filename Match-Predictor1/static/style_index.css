@@ -1,0 +1,52 @@
+body {
+    padding: 40px;
+    background-color: lightgray;
+    font-family: Arial;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    margin-right: 40px;
+    padding: 20px;
+    background-color: darkblue;
+    color: white;
+    font-size: 32px;
+    border: 3px solid navy;
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    padding: 30px;
+    background-color: white;
+    border: 2px solid gray;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 10px;
+    color: darkblue;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+select {
+    margin-bottom: 20px;
+    padding: 12px;
+    background-color: lightblue;
+    color: darkblue;
+    font-size: 16px;
+    border: 2px solid blue;
+}
+
+button {
+    margin: 20px;
+    padding: 15px 30px;
+    background-color: green;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: 2px solid darkgreen;
+}

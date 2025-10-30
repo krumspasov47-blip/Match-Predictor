@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Football Predictor</title>
+    <link rel="stylesheet" type="text/css" href="static/style_index.css">
+</head>
+<body>
+<h1>Predictor</h1>
+<form method="post">
+    <label>Select Home Team:</label>
+    <select name="team1">
+        {% for team in teams %}
+        <option value="{{ team }}">{{ team }}</option>
+        {% endfor %}
+    </select>
+    <br><br>
+    <label> Select Away Team:</label>
+    <select name="team2">
+        {% for team in teams %}
+        <option value="{{ team }}">{{ team }}</option>\
+        {% endfor %}
+    </select>
+    <br><br>
+    <button type="submit">Analyze</button>
+</form>
+</body>
+</html>
