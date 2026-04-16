@@ -2,113 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Results – {{ stats.team1 }} vs {{ stats.team2 }}</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>Results</title>
     <link rel="stylesheet" type="text/css" href="static/style_result.css">
 </head>
 <body>
- 
-<div class="bg-grid"></div>
- 
-<div class="wrapper">
- 
-    <header class="header">
-        <div class="header-badge">⚽ Match Analysis</div>
-        <h1 class="title">
-            <span class="team home-team">{{ stats.team1 }}</span>
-            <span class="vs">VS</span>
-            <span class="team away-team">{{ stats.team2 }}</span>
-        </h1>
-    </header>
- 
-    <section class="section-grid">
- 
-        <!-- Head to Head -->
-        <div class="card h2h-card">
-            <div class="card-label">Head to Head</div>
-            <div class="h2h-bars">
- 
-                <div class="h2h-row">
-                    <span class="h2h-team home">{{ stats.team1 }}</span>
-                    <div class="bar-track">
-                        <div class="bar home-bar" style="--pct: {{ stats.team1_wins }}"></div>
-                    </div>
-                    <span class="h2h-count">{{ stats.team1_wins }}</span>
-                </div>
- 
-                <div class="h2h-row">
-                    <span class="h2h-team draw">Draw</span>
-                    <div class="bar-track">
-                        <div class="bar draw-bar" style="--pct: {{ stats.draws }}"></div>
-                    </div>
-                    <span class="h2h-count">{{ stats.draws }}</span>
-                </div>
- 
-                <div class="h2h-row">
-                    <span class="h2h-team away">{{ stats.team2 }}</span>
-                    <div class="bar-track">
-                        <div class="bar away-bar" style="--pct: {{ stats.team2_wins }}"></div>
-                    </div>
-                    <span class="h2h-count">{{ stats.team2_wins }}</span>
-                </div>
- 
-            </div>
-        </div>
- 
-        <!-- Prediction -->
-        <div class="card prob-card">
-            <div class="card-label">Predicted Probabilities</div>
-            <div class="prob-list">
- 
-                <div class="prob-item">
-                    <div class="prob-header">
-                        <span class="prob-team home">{{ stats.team1 }}</span>
-                        <span class="prob-pct home">{{ stats.team1_prob }}%</span>
-                    </div>
-                    <div class="prob-track">
-                        <div class="prob-fill home-fill" style="width: {{ stats.team1_prob }}%"></div>
-                    </div>
-                </div>
- 
-                <div class="prob-item">
-                    <div class="prob-header">
-                        <span class="prob-team draw">Draw</span>
-                        <span class="prob-pct draw">{{ stats.draw_prob }}%</span>
-                    </div>
-                    <div class="prob-track">
-                        <div class="prob-fill draw-fill" style="width: {{ stats.draw_prob }}%"></div>
-                    </div>
-                </div>
- 
-                <div class="prob-item">
-                    <div class="prob-header">
-                        <span class="prob-team away">{{ stats.team2 }}</span>
-                        <span class="prob-pct away">{{ stats.team2_prob }}%</span>
-                    </div>
-                    <div class="prob-track">
-                        <div class="prob-fill away-fill" style="width: {{ stats.team2_prob }}%"></div>
-                    </div>
-                </div>
- 
-            </div>
-        </div>
- 
-    </section>
- 
-    <!-- Chart -->
-    <div class="card chart-card">
-        <div class="card-label">Statistical Charts</div>
-        <div class="chart-container">
-            <img src="static/result.png" alt="Match Chart">
-        </div>
-    </div>
- 
-    <a href="{{ url_for('index') }}" class="btn-back">
-        ← Try Another Match
-    </a>
- 
-</div>
- 
+    <h1>Match Stats: {{ stats.team1 }} vs {{ stats.team2 }}</h1>
+
+    <p>{{ stats.team1 }} Wins: {{ stats.team1_wins }}</p>
+    <p>{{ stats.team2 }} Wins: {{ stats.team2_wins }}</p>
+    <p>Draws: {{ stats.draws }}</p>
+
+    <h2>Predicted Probabilities:</h2>
+<ul>
+    <li>{{ stats.team1 }}: {{ stats.team1_prob }}%</li>
+    <li>{{ stats.team2 }}: {{ stats.team2_prob }}%</li>
+    <li>Draw: {{ stats.draw_prob }}%</li>
+</ul>
+
+    <img src="static/result.png" alt="Match Chart">
+
+    <br><br>
+    <a href="{{ url_for('index') }}">Try another match</a>
 </body>
 </html>
