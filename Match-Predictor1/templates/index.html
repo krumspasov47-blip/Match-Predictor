@@ -3,26 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <title>Football Predictor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="static/style_index.css">
 </head>
 <body>
-<h1>Predictor</h1>
-<form method="post">
-    <label>Select Home Team:</label>
-    <select name="team1">
-        {% for team in teams %}
-        <option value="{{ team }}">{{ team }}</option>
-        {% endfor %}
-    </select>
-    <br><br>
-    <label> Select Away Team:</label>
-    <select name="team2">
-        {% for team in teams %}
-        <option value="{{ team }}">{{ team }}</option>\
-        {% endfor %}
-    </select>
-    <br><br>
-    <button type="submit">Analyze</button>
-</form>
+ 
+<div class="bg-grid"></div>
+ 
+<div class="wrapper">
+ 
+    <header class="header">
+        <div class="header-badge">⚽ ML Powered</div>
+        <h1 class="title">MATCH<br><span>PREDICTOR</span></h1>
+        <p class="subtitle">XGBoost · 50K+ Historical Matches · 54.2% Accuracy</p>
+    </header>
+ 
+    <main class="card">
+        <form method="post" class="form">
+ 
+            <div class="vs-layout">
+ 
+                <div class="team-block">
+                    <label class="team-label home-label">
+                        <span class="label-icon">🏠</span>
+                        Home Team
+                    </label>
+                    <div class="select-wrapper home-select">
+                        <select name="team1">
+                            {% for team in teams %}
+                            <option value="{{ team }}">{{ team }}</option>
+                            {% endfor %}
+                        </select>
+                        <span class="select-arrow">▾</span>
+                    </div>
+                </div>
+ 
+                <div class="vs-divider">
+                    <div class="vs-line"></div>
+                    <span class="vs-text">VS</span>
+                    <div class="vs-line"></div>
+                </div>
+ 
+                <div class="team-block">
+                    <label class="team-label away-label">
+                        <span class="label-icon">✈️</span>
+                        Away Team
+                    </label>
+                    <div class="select-wrapper away-select">
+                        <select name="team2">
+                            {% for team in teams %}
+                            <option value="{{ team }}">{{ team }}</option>
+                            {% endfor %}
+                        </select>
+                        <span class="select-arrow">▾</span>
+                    </div>
+                </div>
+ 
+            </div>
+ 
+            <button type="submit" class="btn-analyze">
+                <span class="btn-text">Analyze Match</span>
+                <span class="btn-icon">→</span>
+            </button>
+ 
+        </form>
+    </main>
+ 
+    <footer class="footer">
+        <span>Trained on data from 2022 World Cup onwards</span>
+    </footer>
+ 
+</div>
+ 
 </body>
 </html>
